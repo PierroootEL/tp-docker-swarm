@@ -1,0 +1,2 @@
+docker service rm wordpress_x_db_wordpress
+docker service rm wordpress_x_db_db
