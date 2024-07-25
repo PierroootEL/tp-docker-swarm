@@ -18,6 +18,7 @@ git clone https://github.com/PierroootEL/tp-docker-swarm.git
 cd tp-docker-swarm
 ```
 ## Préparation de l'infrastructure
+Copier le fichier " node_exporter " présent dans le  dossier " files ", dans le répertoire " /usr "
 Créez un service dans " /etc/systemd/system/ " nommé " node-exporter.service "
 ```bash
 cd /etc/systemd/system/
@@ -39,7 +40,7 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 ```
-N'oubliez de modifier les chemins dans les Dockerfile présents dans les dossiers alertes et wordpress
+IMPORTANT : N'oubliez de modifier les chemins dans les fichiers docker-compose.yml présents dans les dossiers " alerts " et " wordpress " afin de changer les chemins absolu à destination des volumes
 ## Partie WEB :
 ### Lancez Wordpress et la base de données
 ```bash
@@ -49,8 +50,8 @@ sh start_docker.sh
 ## Partie MONITORING :
 ### Lancez Node explorer
 ```bash
-cd  tp-docker-swarm/alerts/node-exporter
-sh start_docker.sh
+systemctl start node-exporter.service
+systemctl enable node-exporter.service
 ```
 ### Lancez le système d'alertes
 ```bash
