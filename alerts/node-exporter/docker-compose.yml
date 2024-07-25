@@ -1,0 +1,12 @@
+version: '3'
+services:
+  node-exporter:
+    image: prom/node-exporter
+    ports:
+      - '9101:9101'
+    volumes:
+      - /mnt/alerts/node-exporter/node-data:/var/www/html
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure

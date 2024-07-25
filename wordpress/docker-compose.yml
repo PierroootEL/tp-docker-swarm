@@ -13,7 +13,7 @@ services:
       WP_HOME: http://grp7.courses.studalya.net
       WP_SITEURL: http://grp7.courses.studalya.net
     volumes:
-      - /mnt/docker/wordpress_data:/var/www/html
+      - /mnt/wordpress/wordpress_data:/var/www/html
     deploy:
       replicas: 3
       restart_policy:
@@ -31,7 +31,7 @@ services:
       MYSQL_PASSWORD: wordpress
       MYSQL_ROOT_PASSWORD: rootpassword
     volumes:
-      - /mnt/docker/db_data:/var/lib/mysql
+      - /mnt/wordpress/db_data:/var/lib/mysql
     deploy:
       replicas: 1
       restart_policy:

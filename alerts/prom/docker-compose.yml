@@ -1,0 +1,11 @@
+services:
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - /mnt/alerts/prom/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /mnt/alerts/prom/alerts.yml:/etc/prometheus/alerts.yml
+    command:
+      - --web.enable-admin-api
+      - --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
