@@ -40,24 +40,25 @@ Restart=always
 WantedBy=multi-user.target
 ```
 N'oubliez de modifier les chemins dans les Dockerfile présents dans les dossiers alertes et wordpress
-
-## Lancez Wordpress et la base de données
+## Partie WEB :
+### Lancez Wordpress et la base de données
 ```bash
 cd tp-docker-swarm/wordpress
 sh start_docker.sh
 ```
-## Lancez le système d'alertes
+## Partie MONITORING :
+### Lancez Node explorer
+```bash
+cd  tp-docker-swarm/alerts/node-exporter
+sh start_docker.sh
+```
+### Lancez le système d'alertes
 ```bash
 cd  tp-docker-swarm/alerts/alertmanager/
 sh start_docker.sh
 ```
-## Lancez prometheus
+### Lancez prometheus
 ```bash
 cd  tp-docker-swarm/alerts/prom
-sh start_docker.sh
-```
-## Lancez Node explorer
-```bash
-cd  tp-docker-swarm/alerts/node-exporter
 sh start_docker.sh
 ```
